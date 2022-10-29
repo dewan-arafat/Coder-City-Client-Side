@@ -4,7 +4,12 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <div className='bg-gray-300'>
@@ -67,17 +72,18 @@ const Header = () => {
                     </div>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
                         <li>
-                            <img src={user?.photoURL} alt="" className='w-8 h-8 rounded-lg' />
+
                         </li>
                         <li>
                             <Link
                                 class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             >
                                 {
-                                    user.uid ?
+                                    user?.uid ?
                                         <>
+                                            <img src={user?.photoURL} alt="" className='w-8 h-8 rounded-lg inline' />
                                             <span>{user?.displayName}  </span>
-                                            <button className="btn btn-outline btn-accent">Log Out</button>
+                                            <button onClick={handleLogOut} className="btn btn-outline btn-accent">Log Out</button>
                                         </>
                                         :
                                         <>
@@ -85,7 +91,7 @@ const Header = () => {
                                                 to="/login"
                                                 aria-label="Sign in"
                                                 title="Sign in"
-                                                class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400 mx-2"
                                             >
                                                 Log in
                                             </Link>
