@@ -1,9 +1,12 @@
 import React from 'react';
-
+import { Outlet } from 'react-router-dom';
+import Header from '../Shared/Header';
 const Main = () => {
     return (
         <div>
-            <p className='text-blue-500'>KOno kotha hobe na</p>
+            <Header></Header>
+            <Outlet></Outlet>
+
         </div>
     );
 };
