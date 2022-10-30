@@ -6,7 +6,7 @@ import CourseHome from './CourseDeatils';
 const Courses = () => {
 
     return (
-        <div className='lg:flex flex-row'>
+        <div className='lg:flex flex-row px-6 pt-32'>
 
             <LeftSideNav ></LeftSideNav>
 

@@ -12,7 +12,7 @@ const Header = () => {
     }
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <div className='bg-gray-300'>
+        <div className='bg-gray-300 fixed top-0 left-0 right-0'>
             <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
@@ -56,16 +56,6 @@ const Header = () => {
                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                 >
                                     FAQ
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="/about-us"
-                                    aria-label="About us"
-                                    title="About us"
-                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                >
-                                    About us
                                 </Link>
                             </li>
                         </ul>

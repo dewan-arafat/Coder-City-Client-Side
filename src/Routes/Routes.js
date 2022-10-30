@@ -8,6 +8,8 @@ import FAQ from "../Layout/FAQ";
 import Main from "../Layout/Main";
 import LogIn from "../Layout/LogIn"
 import Register from "../Layout/Register";
+import Premium from "../Layout/Premium";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -22,11 +24,18 @@ export const routes = createBrowserRouter([
                     {
                         path: '/courses',
                         loader: () => fetch('http://localhost:5000/course-name'),
+
                         element: <AllCourse></AllCourse>
                     },
                     {
                         path: '/courses/:id',
-                        element: <CourseDeatils></CourseDeatils>
+                        element: <CourseDeatils></CourseDeatils>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                    },
+                    {
+                        path: '/courses/premium/:id',
+                        element: <PrivateRoute><Premium></Premium></PrivateRoute>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
                     },
 
                 ]
@@ -39,10 +48,7 @@ export const routes = createBrowserRouter([
                 path: '/faq',
                 element: <FAQ></FAQ>
             },
-            {
-                path: '/about-us',
-                element: <AboutUS></AboutUS>
-            },
+
             {
                 path: '/login',
                 element: <LogIn></LogIn>

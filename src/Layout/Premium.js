@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-const CourseDeatils = () => {
+
+const Premium = () => {
     const news = useLoaderData();
-    const { id, name, img, class_, caption } = news;
-    console.log(news);
+    const { name, img, class_, duration, price } = news;
     return (
         <div className='mx-auto'>
             <div className='bg-gray-200 p-6 rounded shadow-lg'>
@@ -15,15 +15,16 @@ const CourseDeatils = () => {
                 />
                 <p className='mb-2 text-xl font-bold leading-none sm:text-2xl'>{name}</p>
                 <p> <span className='font-bold'>Number of Classes:</span>  {class_} </p>
-                <p className='w-52'><span className='font-bold'>Course Outline:</span>  {caption}</p>
-                <Link to={`/courses/premium/${id}`}
+                <p className='w-52'><span className='font-bold'>Course Duration:</span>  {duration} Hours</p>
+                <p className='w-52'><span className='font-bold'>Course Price:</span>  {price}</p>
+                <Link
                     className='px-8 block w-full mt-4 py-3 font-semibold text-center rounded-full bg-cyan-200 text-gray-800 hover:bg-cyan-400'
                 >
-                    Get Premium Access
+                    Pay Now
                 </Link>
             </div>
         </div>
     );
 };
 
-export default CourseDeatils;
+export default Premium;

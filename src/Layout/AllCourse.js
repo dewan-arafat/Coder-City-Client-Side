@@ -6,8 +6,7 @@ const AllCourse = () => {
     const courseTopic = useLoaderData();
     console.log(courseTopic);
     return (
-        <div className='w-9/12'>
-            this is another div
+        <div className='w-full lg:w-9/12 lg:pl-6 '>
             <div className='grid gap-8 row-gap-5 mb-8 lg:grid-cols-2 lg:row-gap-8'>
                 {courseTopic.map(course => (
                     <CourseCard
