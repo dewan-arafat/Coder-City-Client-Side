@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -9,6 +9,7 @@ const LogIn = () => {
     const [error, setError] = useState('');
     const { signIn } = useContext(AuthContext);
     const { providerLogin } = useContext(AuthContext);
+    const { githubLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -21,6 +22,17 @@ const LogIn = () => {
                 console.log(user);
             })
             .catch(error => console.error(error))
+    }
+
+    const githubProvider = new GithubAuthProvider();
+    const handleGithubSignIn = () => {
+        githubLogin(githubProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+
     }
     const handleLogIn = event => {
         event.preventDefault();
@@ -78,7 +90,7 @@ const LogIn = () => {
                     </form>
                     <div className='flex justify-center pb-2'>
                         <button onClick={handleGoogleSignIn} className="btn btn-sm  btn-ghost ">Login with Google</button>
-                        <button className="btn btn-sm  btn-ghost">Login with Github</button>
+                        <button onClick={handleGithubSignIn} className="btn btn-sm  btn-ghost">Login with Github</button>
                     </div>
                 </div>
             </div>
