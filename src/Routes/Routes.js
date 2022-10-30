@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import AboutUS from "../Layout/AboutUS";
 import AllCourse from "../Layout/AllCourse";
 import Blog from "../Layout/Blog";
 import CourseDeatils from "../Layout/CourseDeatils";
@@ -10,17 +9,20 @@ import LogIn from "../Layout/LogIn"
 import Register from "../Layout/Register";
 import Premium from "../Layout/Premium";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import Hero from "../Layout/Hero";
+import Hero from "../Layout/Hero"
+import ErrorPage from "../Layout/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
 
                 path: '/courses',
                 element: <Courses></Courses>,
+
 
                 children: [
                     {

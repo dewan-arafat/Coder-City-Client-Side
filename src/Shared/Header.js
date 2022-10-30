@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Switch from '../Layout/Switch';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 
@@ -97,6 +98,10 @@ const Header = () => {
 
                             </Link>
                         </li>
+                        <li>
+                            <Switch></Switch>
+                        </li>
+                        <li className='font-bold'> Dark Mode</li>
 
                     </ul>
                     <div class="lg:hidden">
@@ -221,6 +226,11 @@ const Header = () => {
 
                                                 </Link>
                                             </li>
+                                            <li className='flex'>
+                                                <Switch></Switch>
+                                                <p className='font-bold pl-3'> Dark Mode</p>
+                                            </li>
+
 
 
                                         </ul>
