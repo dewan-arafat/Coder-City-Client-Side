@@ -24,7 +24,7 @@ const Header = () => {
                         >
 
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                Company
+                                Coder City
                             </span>
                         </Link>
                         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -62,9 +62,6 @@ const Header = () => {
                     </div>
                     <ul class="flex items-center hidden space-x-8 lg:flex">
                         <li>
-
-                        </li>
-                        <li>
                             <Link
                                 class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             >
@@ -72,7 +69,7 @@ const Header = () => {
                                     user?.uid ?
                                         <>
                                             <img src={user?.photoURL} alt="" className='w-8 h-8 rounded-lg inline' />
-                                            <span>{user?.displayName}  </span>
+                                            <span className='px-2'>{user?.displayName}  </span>
                                             <button onClick={handleLogOut} className="btn btn-outline btn-accent">Log Out</button>
                                         </>
                                         :
@@ -100,12 +97,7 @@ const Header = () => {
 
                             </Link>
                         </li>
-                        <li>
 
-                        </li>
-                        <li>
-
-                        </li>
                     </ul>
                     <div class="lg:hidden">
                         <button
@@ -141,7 +133,7 @@ const Header = () => {
                                                 class="inline-flex items-center"
                                             >
                                                 <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                    Company
+                                                    Coder City
                                                 </span>
                                             </a>
                                         </div>
@@ -195,43 +187,52 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    to="/about-us"
-                                                    aria-label="About us"
-                                                    title="About us"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    About us
+                                                    {
+                                                        user?.uid ?
+                                                            <>
+                                                                <img src={user?.photoURL} alt="" className='w-8 h-8 rounded-lg inline' />
+                                                                <span className='px-2'>{user?.displayName}  </span>
+                                                                <button onClick={handleLogOut} className="btn btn-outline btn-accent">Log Out</button>
+                                                            </>
+                                                            :
+                                                            <>
+                                                                <Link
+                                                                    to="/login"
+                                                                    aria-label="Sign in"
+                                                                    title="Sign in"
+                                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400 mx-2"
+                                                                >
+                                                                    Log in
+                                                                </Link>
+                                                                <Link
+                                                                    to="/register"
+                                                                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                                                                    aria-label="Sign up"
+                                                                    title="Sign up"
+                                                                >
+                                                                    Register
+                                                                </Link>
+                                                            </>
+
+
+                                                    }
+
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link
-                                                    to="/login"
-                                                    aria-label="Sign in"
-                                                    title="Sign in"
-                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    Log in
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="/register"
-                                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign up"
-                                                    title="Sign up"
-                                                >
-                                                    Register
-                                                </Link>
-                                            </li>
+
+
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </div>
+                        )
+                        }
+                    </div >
+                </div >
+            </div >
+        </div >
     );
 };
 
