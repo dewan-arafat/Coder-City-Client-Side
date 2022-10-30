@@ -45,10 +45,9 @@ const Register = () => {
         <div>
 
             <div className="min-h-screen bg-base-200 py-32 lg:px-24">
-                <div className="flex flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left lg:pl-20">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <div className=" flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-center">
+                        <h1 className="text-5xl font-bold pb-6">Register now!</h1>
                     </div>
                     <div className=" flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto">
                         <form onSubmit={handleSubmit} className="card-body">
