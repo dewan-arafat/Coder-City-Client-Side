@@ -10,6 +10,7 @@ import LogIn from "../Layout/LogIn"
 import Register from "../Layout/Register";
 import Premium from "../Layout/Premium";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Hero from "../Layout/Hero";
 
 export const routes = createBrowserRouter([
     {
@@ -17,25 +18,26 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
+
                 path: '/courses',
                 element: <Courses></Courses>,
 
                 children: [
                     {
                         path: '/courses',
-                        loader: () => fetch('http://localhost:5000/course-name'),
+                        loader: () => fetch('https://coder-city-server.vercel.app/course-name'),
 
                         element: <AllCourse></AllCourse>
                     },
                     {
                         path: '/courses/:id',
                         element: <CourseDeatils></CourseDeatils>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                        loader: ({ params }) => fetch(`https://coder-city-server.vercel.app/course/${params.id}`)
                     },
                     {
                         path: '/courses/premium/:id',
                         element: <PrivateRoute><Premium></Premium></PrivateRoute>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                        loader: ({ params }) => fetch(`https://coder-city-server.vercel.app/course/${params.id}`)
                     },
 
                 ]
@@ -56,6 +58,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/',
+                element: <Hero></Hero>,
             }
 
         ]
